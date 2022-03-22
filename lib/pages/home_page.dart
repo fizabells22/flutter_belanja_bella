@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_belanja_bella/models/item.dart';
+import 'package:flutter_belanja_bella/pages/item_page.dart';
 
 class HomePage extends StatelessWidget {
   final List<Item> items = [
     Item(name: 'Sugar', price: 5000),
-    Item(name: 'Salt', price: 2000)
+    Item(name: 'Salt', price: 2000),
+    Item(name: 'Pepper', price: 10000),
+    Item(name: 'Oregano', price: 7500),
+    Item(name: 'Onion', price: 10000),
   ];
 
   HomePage({Key? key}) : super(key: key);
@@ -24,7 +28,8 @@ class HomePage extends StatelessWidget {
             final item = items[index];
             return InkWell(
               onTap: () {
-                Navigator.pushNamed(context, '/item', arguments: item);
+                Navigator.pushNamed(context, ItemPage.routeName,
+                    arguments: item);
               },
               child: Card(
                 child: Container(
